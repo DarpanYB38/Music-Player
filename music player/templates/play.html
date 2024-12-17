@@ -1,0 +1,20 @@
+<!-- play.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Song</title>
+</head>
+<body>
+    <h1>Now Playing: {{ song.title }} by {{ song.artist }}</h1>
+
+    <!-- Audio Player -->
+    <audio controls autoplay>
+        <source src="{{ url_for('static', filename='uploads/' + song.file_path.split('/')[-1]) }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <a href="{{ url_for('index') }}">Back to Playlist</a>
+</body>
+</html>
